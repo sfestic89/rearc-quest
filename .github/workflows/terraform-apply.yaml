@@ -39,6 +39,7 @@ jobs:
           workload_identity_provider: "projects/726010183755/locations/global/workloadIdentityPools/rearc-quest-wif-pool/providers/github-provider"
           service_account: "ccoegithub-terraform@ccoe-seed-project.iam.gserviceaccount.com"
           audience: "https://github.com/sfestic89/rearc-quest"
+          impersonate_service_account: "rearc-deployer@rearc-quest-project.iam.gserviceaccount.com"
 
 
       - name: Setup Terraform
@@ -48,13 +49,13 @@ jobs:
         run: terraform init
       
       - name: Terraform Format
-        run: terraform fmt -check -recursive
+        run: terraform fmt
 
       - name: Terraform Validate
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -input=false -out=tfplan
+        run: terraform plan
 
   # Job 2: Terraform Apply
   terraform-apply:
@@ -83,6 +84,7 @@ jobs:
           workload_identity_provider: "projects/726010183755/locations/global/workloadIdentityPools/rearc-quest-wif-pool/providers/github-provider"
           service_account: "ccoegithub-terraform@ccoe-seed-project.iam.gserviceaccount.com"
           audience: "https://github.com/sfestic89/rearc-quest"
+          impersonate_service_account: "rearc-deployer@rearc-quest-project.iam.gserviceaccount.com"
           
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -91,7 +93,7 @@ jobs:
         run: terraform init
 
       - name: Terraform Format
-        run: terraform fmt -check -recursive
+        run: terraform fmt
 
       - name: Terraform Validate
         run: terraform validate

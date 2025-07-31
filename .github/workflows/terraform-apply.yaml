@@ -37,9 +37,8 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: "projects/726010183755/locations/global/workloadIdentityPools/rearc-quest-wif-pool/providers/github-provider"
-          service_account: "ccoegithub-terraform@ccoe-seed-project.iam.gserviceaccount.com"
+          service_account: "rearc-deployer@rearc-quest-project.iam.gserviceaccount.com"
           audience: "https://github.com/sfestic89/rearc-quest"
-          impersonate_service_account: "rearc-deployer@rearc-quest-project.iam.gserviceaccount.com"
 
 
       - name: Setup Terraform
@@ -82,9 +81,9 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: "projects/726010183755/locations/global/workloadIdentityPools/rearc-quest-wif-pool/providers/github-provider"
-          service_account: "ccoegithub-terraform@ccoe-seed-project.iam.gserviceaccount.com"
+          service_account: "rearc-deployer@rearc-quest-project.iam.gserviceaccount.com"
           audience: "https://github.com/sfestic89/rearc-quest"
-          impersonate_service_account: "rearc-deployer@rearc-quest-project.iam.gserviceaccount.com"
+      
           
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3

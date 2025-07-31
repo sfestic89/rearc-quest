@@ -4,6 +4,7 @@ resource "google_cloudbuild_trigger" "build_and_push" {
   name    = "build-and-push-docker-image"
 
   trigger_template {
+    project_id  = var.project_id
     repo_name   = var.source_repo_name
     branch_name = var.branch_name
   }

@@ -5,7 +5,7 @@ module "artifact_registry" {
   repositories = [
     {
       repo_id  = "rearc-quest"
-      location = "us-central1"
+      location = "europe-west3"
       format   = "DOCKER"
     }
   ]
@@ -18,7 +18,7 @@ module "cloud_build_trigger" {
 
   project_id                      = "rearc-quest-project"
   artifact_registry_repo_name     = "rearc-quest"
-  artifact_registry_repo_location = "us-central1"
+  artifact_registry_repo_location = "europe-west3"
   source_repo_name                = "rearc-quest"
   branch_name                     = "main"
   cloudbuild_yaml_filename        = "cloudbuild.yaml"

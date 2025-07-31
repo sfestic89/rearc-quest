@@ -3,7 +3,7 @@ data "google_project" "project" {
 }
 
 module "artifact_registry" {
-  source = "./modules/artifact_registry"
+  source = "./modules/artifact-registry"
 
   project_id                        = data.google_project.project.project_id
   repositories = [

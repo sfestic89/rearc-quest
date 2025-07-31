@@ -1,3 +1,4 @@
+/**
 module "artifact_registry" {
   source = "./modules/artifact-registry"
 
@@ -11,7 +12,7 @@ module "artifact_registry" {
   ]
   cloudbuild_service_account_member = "serviceAccount:rearc-quest-project@cloudbuild.gserviceaccount.com"
 }
-
+**/
 # Call the Cloud Build trigger module to set up the build pipeline
 module "cloud_build_trigger" {
   source = "./modules/cloud_build_trigger"

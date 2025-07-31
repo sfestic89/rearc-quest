@@ -1,11 +1,7 @@
-data "google_project" "project" {
-  project_id = "rearc-quest-project"
-}
-
 module "artifact_registry" {
   source = "./modules/artifact-registry"
 
-  project_id = data.google_project.project.project_id
+  project_id = "rearc-quest-project"
   repositories = [
     {
       repo_id  = "rearc-quest"
@@ -13,7 +9,7 @@ module "artifact_registry" {
       format   = "DOCKER"
     }
   ]
-  cloudbuild_service_account_member = "serviceAccount:${data.google_project.project.number}@cloudbuild.gserviceaccount.com"
+  cloudbuild_service_account_member = "serviceAccount:rearc-quest-project@cloudbuild.gserviceaccount.com"
 }
 
 # Call the Cloud Build trigger module to set up the build pipeline

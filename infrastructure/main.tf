@@ -5,7 +5,7 @@ data "google_project" "project" {
 module "artifact_registry" {
   source = "./modules/artifact-registry"
 
-  project_id                        = data.google_project.project.project_id
+  project_id = data.google_project.project.project_id
   repositories = [
     {
       repo_id  = "rearc-quest"
@@ -20,12 +20,12 @@ module "artifact_registry" {
 module "cloud_build_trigger" {
   source = "./modules/cloud_build_trigger"
 
-  project_id                    = "rearc-quest-project"
-  artifact_registry_repo_name   = "rearc-quest"
+  project_id                      = "rearc-quest-project"
+  artifact_registry_repo_name     = "rearc-quest"
   artifact_registry_repo_location = "us-central1"
-  source_repo_name              = "rearc-quest"
-  branch_name                   = "main"
-  cloudbuild_yaml_filename      = "cloudbuild.yaml"
-  image_name                    = "rearc-quest-image"
-  image_tag                     = "latest"
+  source_repo_name                = "rearc-quest"
+  branch_name                     = "main"
+  cloudbuild_yaml_filename        = "cloudbuild.yaml"
+  image_name                      = "rearc-quest-image"
+  image_tag                       = "latest"
 }
